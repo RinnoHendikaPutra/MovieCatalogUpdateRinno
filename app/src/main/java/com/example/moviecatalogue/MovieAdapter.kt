@@ -15,6 +15,8 @@ class MovieAdapter(
         private val IMAGE_BASE = "https://image.tmdb.org/t/p/w500/"
         fun bindMovie(movie : Movie){
             itemView.movie_title.text = movie.title
+            itemView.overview.text = movie.overview
+            itemView.language.text = movie.language
             itemView.movie_release_date.text = movie.release
             Glide.with(itemView).load(IMAGE_BASE + movie.poster).into(itemView.movie_poster)
         }
@@ -31,7 +33,6 @@ class MovieAdapter(
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         holder.bindMovie(movies.get(position))
     }
-
 }
 
 
